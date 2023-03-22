@@ -8,14 +8,13 @@ using namespace std;
 int main()
 {
     string s;
-    int n;
+    int N;
     int push_n;
 
     stack<int> st;
 
-    cin >> n;
-
-    while (n--)
+    cin >> N;
+    while (N--)
     {
         cin >> s;
         if (s == "push")

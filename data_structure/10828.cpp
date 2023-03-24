@@ -21,6 +21,7 @@ int main()
         {
             cin >> push_n;
             st.push(push_n);
+            continue;
         }
         else if (s == "pop")
         {

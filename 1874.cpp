@@ -1,38 +1,37 @@
 #include <iostream>
+#include <vector>
 #include <stack>
 
 using namespace std;
 
-
-
-// find: 아직 찾지 않았다면 무조건 고정!
-// pop하면 그 때 cin으로 다시 find 찾아오기
-// pop -> cin >> find;
-// 이건 반드시 지켜서 풀어야 할 듯?
-
 int main()
 {
-	int n;
-	int find;
+	int i, n, m;
+	vector <char> ans;
 	stack<int> st;
 
+	i = 1;
 	cin >> n;
-	for (int i = 1; i <= n; i++)
+	while (n--)
 	{
-		cin >> find;
-		st.push(i);
-		cout << "+\n";
-		if (st.top() == find)
+		cin >> m;
+		while (i <= m)
+		{
+			st.push(i);
+			ans.push_back('+');
+			i++;
+		}
+		if (st.top() == m)
 		{
 			st.pop();
-			cout << "-\n";
-			cin >> find;
-			while (st.top() != find)
-			{
-				st.pop();
-				cout << "-\n";
-				cin >> find;
-			}
+			ans.push_back('-');
+		}
+		else
+		{
+			cout << "NO" << "\n";
+			return 0;
 		}
 	}
+	for (int j = 0; j < ans.size(); j++)
+		cout << ans[j] << "\n";
 }
